@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-
-export default function Home() {
+// import Image from 'next/image'
+// import { Button } from '@/components/ui/button'
+import { UserButton } from '@clerk/nextjs'
+import '../globals.css'
+export default function SetupPage() {
   return (
-    <div className=" flex justify-center items-center">
-      <h1>Hello admin dashboard</h1>
-      <Button>Button</Button>
+    <div className=" p-4">
+      <UserButton afterSignOutUrl="/" />
     </div>
   )
 }
