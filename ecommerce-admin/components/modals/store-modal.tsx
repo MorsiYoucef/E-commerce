@@ -3,7 +3,7 @@
 import { Modal } from '@/components/ui/modal'
 import { useStoreModal } from '@/hooks/use-store-modal'
 
-export const storeModal = () => {
+export const StoreModal = () => {
   const storeModal = useStoreModal()
   return (
     <Modal
