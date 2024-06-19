@@ -2,7 +2,6 @@
 
 import { UserButton } from '@clerk/nextjs'
 import { Modal } from '@/components/ui/modal'
-import '../globals.css'
 import { useStoreModal } from '@/hooks/use-store-modal'
 import { useEffect } from 'react'
 
@@ -16,5 +15,5 @@ export default function SetupPage() {
     }
   }, [isOpen, onOpen])
 
-  return <div className="p-4 flex flex-col gap-2">Root Page</div>
+  return null
 }
