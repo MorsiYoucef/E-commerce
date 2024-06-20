@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
-
+import { PrismaClient } from '@prisma/client'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -18,6 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import prismadb from '@/lib/prismadb'
 
 const frameworks = [
   {
