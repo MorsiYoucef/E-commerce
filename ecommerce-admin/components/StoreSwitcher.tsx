@@ -22,6 +22,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandSeparator,
 } from './ui/command'
 import { Input } from 'postcss'
 
@@ -74,23 +75,35 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitchProps) => {
             <CommandInput placeholder="Search Store..."></CommandInput>
             <CommandEmpty>No Store Found.</CommandEmpty>
             <CommandGroup heading="Stores">
-              {formatedItems.map((store) => (
+              {formatedItems.map((item) => (
                 <CommandItem
-                  key={store.value}
-                  onSelect={() => onStoreSelect(store)}
+                  key={item.value}
+                  onSelect={() => onStoreSelect(item)}
                 >
-                  <StoreIcon className=" mr-2 h-4 w-4" />
-                  {store.label}
-                  <Check
-                    className={cn(
-                      'ml-auto h-4 w-4',
-                      currentStore?.value === store.value
-                        ? 'opacity-100'
-                        : 'opacity-0'
-                    )}
-                  />
+                  <StoreIcon className=" mr-2 h-4 w-4">
+                    {item.label}
+                    <Check
+                      className={cn(
+                        'ml-auto h-4 w-4',
+                        currentStore?.value === item.value
+                          ? 'opacity-100'
+                          : 'opacity-0'
+                      )}
+                    />
+                  </StoreIcon>
                 </CommandItem>
               ))}
+            </CommandGroup>
+          </CommandList>
+          <CommandSeparator />
+          <CommandList>
+            <CommandGroup>
+              <CommandItem
+                onSelect={() => {
+                  setOpen(false)
+                  storeModal.onOpen()
+                }}
+              ></CommandItem>
             </CommandGroup>
           </CommandList>
         </Command>
