@@ -1,7 +1,6 @@
 'use client'
 
 import { Store } from '@prisma/client'
-import { ComboboxDemo } from './ui/ComboBox'
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import { useStoreModal } from '@/hooks/use-store-modal'
 import { useParams, useRouter } from 'next/navigation'
@@ -81,17 +80,16 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitchProps) => {
                   key={item.value}
                   onSelect={() => onStoreSelect(item)}
                 >
-                  <StoreIcon className=" mr-2 h-4 w-4">
-                    {item.label}
-                    <Check
-                      className={cn(
-                        'ml-auto h-4 w-4',
-                        currentStore?.value === item.value
-                          ? 'opacity-100'
-                          : 'opacity-0'
-                      )}
-                    />
-                  </StoreIcon>
+                  <StoreIcon className=" mr-2 h-4 w-4" />
+                  {item.label}
+                  <Check
+                    className={cn(
+                      'ml-5 h-4 w-4',
+                      currentStore?.value === item.value
+                        ? 'opacity-100'
+                        : 'opacity-0'
+                    )}
+                  />
                 </CommandItem>
               ))}
             </CommandGroup>
